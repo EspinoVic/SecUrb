@@ -1,5 +1,5 @@
-<!-- <?php  ?>
- -->
+ <?php  ?>
+
 
 <h1 class="title">Expedientes</h1>
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
