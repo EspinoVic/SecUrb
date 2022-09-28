@@ -86,7 +86,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr onclick=' window.location.href = "detail?expediente=1";' >
       <th scope="row">0001/2022</th>
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
@@ -95,7 +95,7 @@
       <td>Construcción</td>
       <td>OK</td>
     </tr>
-    <tr>
+    <tr onclick=' window.location.href = "detail?expediente=2";'>
       <th scope="row">0002/2022</th>
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>

@@ -16,4 +16,5 @@ class ExpedientesController extends Controller
 
 ?>
 
-<h1>Expedientes Edit</h1>
+<h1>Expedientes Detail</h1>
+<h2>Exp passed -> <?php echo  $exp ?> </h2>
