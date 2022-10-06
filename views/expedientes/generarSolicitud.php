@@ -1,6 +1,12 @@
 
 <h1>Solicitud de <?php echo $sTramite; ?> </h1>
 
+<?php 
+
+echo $this->render('_datos_solicitud')
+
+?>
+
 
 <form class="row g-3">
 <!--     <div class="col-12">
@@ -22,30 +28,7 @@
 
 </form>
 
-<?php use yii\bootstrap5\Carousel; ?>
- <?php echo Carousel::widget([
-     'items' => [
-         // the item contains both the image and the caption
-
-         [
-             'content' => $this->render('_datos_solicitud'),
-             'caption' => 'sdsdsd',
-             'options' => [
-                 'class' => 'row g-3',
-             ],
-         ],
-         [
-             'content' =>
-                 '<img src="https://i3.visitchile.com/img/GalleryContent/444/Isla_de_Pascua.jpg"/>',
-             'caption' => '2222',
-             'options' => [],
-         ],
-     ],
-     'showIndicators' => true,
-  ]);
-
-?>
-
+ <!-- 
 <?php use yii\bootstrap5\Tabs; ?>
 
 <?php echo Tabs::widget([
@@ -85,4 +68,4 @@
     ],
 ]);
 
-?>
+?> -->
