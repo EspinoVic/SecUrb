@@ -87,3 +87,9 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
   outline: none;
 }
+.custom-control-label::before, 
+.custom-control-label::after {
+top: .8rem;
+width: 1.25rem;
+height: 1.25rem;
+}

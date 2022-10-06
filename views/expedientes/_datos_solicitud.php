@@ -232,4 +232,96 @@ use yii\helpers\Html; ?>
         </div>
     </div>
 
+
+    <h4>Entregables</h4>
+
+ <!--    <div class="row g3">
+        <div class="custom-control form-control-lg custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+        </div>
+        <div class="col-md-6">
+            <label for="formFileSm" class="form-label">Small file input example</label>
+            <input class="form-control form-control-sm" id="formFileSm" type="file">
+        </div>
+    </div>     -->    
+    
+   <!--  <div class="list-group">
+        <label class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="">
+            First checkbox
+            <div class="col-md-3">
+                <input class="form-control form-control-sm  " id="formFileSm" type="file">
+            </div>
+        </label>
+        <label class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="">
+            Second checkbox
+        </label>
+        <label class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="">
+            Third checkbox
+        </label>
+        <label class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="">
+            Fourth checkbox
+        </label>
+        <label class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="">
+            Fifth checkbox
+        </label>
+    </div>
+
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <input class="form-check-input  " type="checkbox" value="" aria-label="...">
+            First checkbox
+            <div class="col-md-3">
+                <input class="form-control form-control-sm  " id="formFileSm" type="file">
+            </div>
+        </li>
+        <li class="list-group-item">
+            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+            Second checkbox
+        </li>
+        
+    </ul>     -->
+    
+    <div class="list-group">
+        <div class="list-group-item d-flex  justify-content-between align-items-center">
+            
+            <div class="   ">
+                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                Second checkbox
+            </div>
+            <div class=" ">
+                <span >Archivo cargado.jpeg</span>
+                <button type="button" class="btn btn-outline-danger">Delete Document</button>
+
+            </div>
+            <div class="">
+                <input class="form-control form-control-sm  " id="formFileSm" type="file">
+            </div>
+        </div>
+        <div class="list-group-item d-flex  justify-content-between align-items-center">
+            
+            <div class="   ">
+                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                Second checkbox
+            </div>
+            <div class=" ">
+                <span >Archivo cargado.jpeg</span>
+                <button type="button" class="btn btn-outline-danger">Delete Document</button>
+
+            </div>
+            <div class="">
+                <input class="form-control form-control-sm  " id="formFileSm" type="file">
+            </div>
+        </div>
+        <div class="list-group-item d-flex">
+            Ramdom bullshit
+        </div>
+    </div>
+
 </form>
