@@ -51,6 +51,13 @@ use yii\helpers\Html; ?>
         <input type="text" class="form-control " id="inputOtroMotivSoli" placeholder="Especifique">
     </div>
 
+    <div class="col-md-6 " id="contCuentaEscritura">
+        <label for="inputTieneEscritura"  class="form-label">Cuenta con escritura </label>
+        <input type="checkbox" class="form-check-input me-1 " id="inputTieneEscritura" placeholder="Especifique">
+    </div>
+ 
+ 
+
     <h4>Información del predio </h4>
     
     <div class="col-md-12" >
@@ -100,7 +107,164 @@ use yii\helpers\Html; ?>
        'tipoDomicilio' => 'InfoPredio',
    ]); ?>
     
-    
+ 
+
+    <div className="viewport-canvas">
+        <canvas id="canvasCroquis"   >
+         Your browser does not support the HTML5 canvas tag.
+        </canvas>
+    </div>
+    <script>
+        let width=800;
+        let height=500
+        
+
+        /* 5 espacios
+        1 cuadro
+        3 rectangulp
+        1 cuadro
+
+        4 x 0.25 espacios
+
+        height / (9elementos x 4unidadesde.25)
+        300/36 -> 8.33px cada unidad minima
+
+
+        */
+
+        let gap =           height/36 +.5;
+        let littleSquar =   4*gap +.5;
+        let bigSquareBase =     3*littleSquar+.5;
+        
+        let currRotationCanvas = 0
+
+        let c = document.getElementById("canvasCroquis");
+        let ctx = c.getContext("2d");
+    /*     ctx.moveTo(0.5,0.5)
+        ctx.translate(0.5, 0.5); */
+
+        let dpi = window.devicePixelRatio;
+
+        //get CSS height
+        //the + prefix casts it to an integer
+        //the slice method gets rid of "px"
+        let style_height = +getComputedStyle(c).getPropertyValue("height").slice(0, -2);
+        //get CSS width
+        let style_width = +getComputedStyle(c).getPropertyValue("width").slice(0, -2);
+        //scale the canvas
+        c.setAttribute('height', style_height * dpi);
+        c.setAttribute('width', style_width * dpi);
+
+
+        document.getElementById("inputInfoPredioEntreCallesH").addEventListener('input',
+        (ev)=>{
+            /* context.restore() */
+            let origX = (gap + littleSquar + gap);
+            let origY =  (gap + littleSquar + gap );
+            
+            ctx.translate( origX,origY )
+            
+
+            ctx.font = `${18}px sans-serif`;
+            let calles = ev.srcElement.value.split(",")
+            ctx.fillText(calles[0],0 , 0);
+            
+            if(calles[1])
+                ctx.fillText(calles[1],0 ,  bigSquareBase+gap + littleSquar + gap );
+
+                
+            let newX = -(gap + littleSquar + gap);
+            let newY =  -(gap + littleSquar + gap );
+            ctx.translate( newX,newY )
+           /*  context.save() */
+ 
+        })
+
+        document.getElementById("inputInfoPredioEntreCallesV").addEventListener('input',
+        (ev)=>{
+            //set position
+             
+
+
+            let origX = (gap + littleSquar + gap + bigSquareBase);
+            let origY =  (gap + littleSquar  + gap);
+            ctx.translate( origX,origY  )
+            ctx.rotate( (90 * Math.PI / 180) );
+
+ 
+            ctx.font = `${18}px sans-serif`;
+            let calles = ev.srcElement.value.split(",")
+            
+            ctx.fillText(calles[0],0 , 0);
+            
+            if(calles[1])
+                ctx.fillText(calles[1],0 ,  bigSquareBase+gap   );
+ 
+
+            //reset position alv
+            let newX = -( gap + littleSquar + gap + bigSquareBase)
+            let newY =  -(gap + littleSquar  + gap) ;
+            ctx.rotate( (-90 * Math.PI / 180) );
+            ctx.translate( newX,newY )
+            context.save()
+            
+        }) 
+
+
+        createRect(gap,gap,littleSquar, littleSquar)
+        createRect(gap,gap + littleSquar + gap,littleSquar, bigSquareBase)
+        createRect(gap,gap + littleSquar + gap + bigSquareBase + gap, littleSquar, littleSquar)
+       
+
+     
+        createRect(gap + littleSquar + gap ,
+        gap,
+        bigSquareBase, 
+        littleSquar
+        )
+        createRect(gap + littleSquar + gap ,
+        gap + littleSquar + gap,
+         bigSquareBase,
+         bigSquareBase
+         )
+        createRect(gap + littleSquar + gap ,
+        gap + littleSquar + gap + bigSquareBase + gap,
+        bigSquareBase, 
+        littleSquar
+        )
+  
+     
+        createRect(gap + littleSquar + gap + bigSquareBase + gap,gap,littleSquar, littleSquar)
+        createRect( gap + littleSquar + gap + bigSquareBase + gap, gap + littleSquar + gap ,littleSquar,bigSquareBase)
+        createRect( gap + littleSquar + gap + bigSquareBase + gap, gap + littleSquar + gap + bigSquareBase + gap,littleSquar, littleSquar)
+   
+      /*   var PIXEL_RATIO = (function () {
+            var ctx = document.createElement("canvas").getContext("2d"),
+                dpr = window.devicePixelRatio || 1,
+                bsr = ctx.webkitBackingStorePixelRatio ||
+                    ctx.mozBackingStorePixelRatio ||
+                    ctx.msBackingStorePixelRatio ||
+                    ctx.oBackingStorePixelRatio ||
+                    ctx.backingStorePixelRatio || 1;
+
+            return dpr / bsr;
+        })(); */
+        function createRect(x,y,w,h){
+            ctx.beginPath();
+            ctx.rect(
+                parseInt(x) + 0.5 , 
+                parseInt(y) + 0.5 , 
+                parseInt(w), 
+                parseInt(h)
+            );
+            ctx.stroke();
+            ctx.save()
+        }
+
+
+
+    </script> 
+
 
     <h4>Domicilio para notificaciones</h4>
 
@@ -234,94 +398,100 @@ use yii\helpers\Html; ?>
 
 
     <h4>Entregables</h4>
+ 
 
- <!--    <div class="row g3">
-        <div class="custom-control form-control-lg custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck1">
-            <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-        </div>
-        <div class="col-md-6">
-            <label for="formFileSm" class="form-label">Small file input example</label>
-            <input class="form-control form-control-sm" id="formFileSm" type="file">
-        </div>
-    </div>     -->    
-    
-   <!--  <div class="list-group">
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            First checkbox
-            <div class="col-md-3">
-                <input class="form-control form-control-sm  " id="formFileSm" type="file">
-            </div>
-        </label>
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            Second checkbox
-        </label>
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            Third checkbox
-        </label>
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            Fourth checkbox
-        </label>
-        <label class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="">
-            Fifth checkbox
-        </label>
-    </div>
+    <table class="table   table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Entregable</th>
+                <th scope="col">Nombre Archivo</th>
+                <th scope="col">Acciones</th>
+                <th scope="col"></th>
+ 
+            </tr>
+        </thead>
+        <tbody>
+           <!--  <tr onclick=' window.location.href = "expedientes/detail?expediente=1";' >
+                <th scope="row">0001/2022</th>
+                <td>13/09/2022</td>
+                <td>Javier Alejandro</td>
+                <td>Pérez</td>
+                <td>Garcpia</td>
+                <td>Construcción</td>
+                <td>OK</td>
+            </tr> -->
+            <tr onclick=''>
+                <td>
+                    <input class="form-check-input p-2  " type="checkbox" value="" aria-label="...">
+                    ESCRITURA INSCRITA EN EL REGISTRO PUBLICO DE LA PROPIEDAD
+                </td>
+                <td>
+                    <span >Archivo cargado.jpeg</span>
 
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger">Borrar</button>
+                </td>
+                <td>
+                    <input class="form-control form-control-sm  " id="formFileSm" type="file">
 
-    <ul class="list-group">
-        <li class="list-group-item">
-            <input class="form-check-input  " type="checkbox" value="" aria-label="...">
-            First checkbox
-            <div class="col-md-3">
-                <input class="form-control form-control-sm  " id="formFileSm" type="file">
-            </div>
-        </li>
-        <li class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-            Second checkbox
-        </li>
+                </td>
+            </tr>
         
-    </ul>     -->
-    
-    <div class="list-group">
-        <div class="list-group-item d-flex  justify-content-between align-items-center">
-            
-            <div class="   ">
-                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                Second checkbox
+            <tr onclick=''>
+                <td>
+                    <input class="form-check-input p-2  " type="checkbox" value="" aria-label="...">
+                    IDENTIFICACION OFICIAL DEL PROPIETARIO
+                </td>
+                <td>
+                    <span >Archivo cargado.jpeg</span>
+
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger">Borrar</button>
+                </td>
+                <td>
+                    <input class="form-control form-control-sm  " id="formFileSm" type="file">
+
+                </td>
+            </tr>
+
+            <tr onclick=''>
+                <td>
+                    <input class="form-check-input p-2  " type="checkbox" value="" aria-label="...">
+                    RECIBO DE AGUA
+                </td>
+                <td>
+                    <span >Archivo cargado.jpeg</span>
+
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger">Borrar</button>
+                </td>
+                <td>
+                    <input class="form-control form-control-sm  " id="formFileSm" type="file">
+
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+<!-- 
+
+
+        <div class=" p-2 flex-fill bd-highlight  ">
+                <input class="form-check-input p-2 flex-fill bd-highlight " type="checkbox" value="" aria-label="...">
+                IDENTIFICACION OFICIAL DEL PROPIETARIO
             </div>
-            <div class=" ">
+            <div class="p-2 flex-fill bd-highlight  ">
                 <span >Archivo cargado.jpeg</span>
-                <button type="button" class="btn btn-outline-danger">Delete Document</button>
+                <button type="button" class="btn btn-outline-danger">Borrar</button>
 
             </div>
-            <div class="">
+            <div class="p-2 flex-fill bd-highlight">
                 <input class="form-control form-control-sm  " id="formFileSm" type="file">
-            </div>
         </div>
-        <div class="list-group-item d-flex  justify-content-between align-items-center">
-            
-            <div class="   ">
-                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                Second checkbox
-            </div>
-            <div class=" ">
-                <span >Archivo cargado.jpeg</span>
-                <button type="button" class="btn btn-outline-danger">Delete Document</button>
-
-            </div>
-            <div class="">
-                <input class="form-control form-control-sm  " id="formFileSm" type="file">
-            </div>
-        </div>
-        <div class="list-group-item d-flex">
-            Ramdom bullshit
-        </div>
-    </div>
+ -->
 
 </form>

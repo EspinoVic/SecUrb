@@ -18,6 +18,15 @@
 
 
 <div class="col-md-6">
-    <label for=<?="input{$tipoDomicilio}EntreCalles" ?> class="form-label">Entre calles</label>
-    <input type="text" class="form-control" id=<?="input{$tipoDomicilio}EntreCalles" ?>  placeholder="Entre calles">
+    <label for=<?="input{$tipoDomicilio}EntreCallesH" ?> class="form-label">Entre calles   </label>
+    <input type="text" class="form-control" id=<?="input{$tipoDomicilio}EntreCallesH" ?>  placeholder="Entre calles horizontal ">
 </div>
+<div class="col-md-6">
+    <label for=<?="input{$tipoDomicilio}EntreCallesV" ?> class="form-label">Entre calles   </label>
+    <input type="text" class="form-control" id=<?="input{$tipoDomicilio}EntreCallesV" ?>  placeholder="Entre calles vertical ">
+</div>
+<?php 
+ 
+
+?>
+ 

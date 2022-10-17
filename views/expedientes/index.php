@@ -86,21 +86,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr onclick=' window.location.href = "detail?expediente=1";' >
+    <tr onclick=' window.location.href = "expedientes/detail?expediente=1";' >
       <th scope="row">0001/2022</th>
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
-    <tr onclick=' window.location.href = "generaSolicitud?expediente=2";'>
+    <tr onclick=' window.location.href = "expedientes/solicitud?expediente=2";'>
       <th scope="row">0002/2022</th>
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -109,7 +109,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -118,7 +118,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -127,7 +127,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -136,7 +136,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -145,7 +145,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -154,7 +154,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -163,7 +163,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -172,7 +172,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -181,7 +181,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -190,7 +190,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -199,7 +199,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -208,7 +208,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -217,7 +217,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -226,7 +226,7 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
@@ -235,20 +235,18 @@
       <td>13/09/2022</td>
       <td>Javier Alejandro</td>
       <td>Pérez</td>
-      <td>Garcpia</td>
+      <td>García</td>
       <td>Construcción</td>
       <td>OK</td>
     </tr>
   </tbody>
 </table>
 
-<nav aria-label="...">
-  <ul class="pagination pagination-sm">
+   <ul class="pagination pagination-sm">
     <li class="page-item active" aria-current="page">
       <span class="page-link">1</span>
     </li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
+    <li class="page-item"><a class="page-link text-danger" href="#" >3</a></li>
   </ul>
-</nav>
-
+ 
